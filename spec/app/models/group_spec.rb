@@ -13,7 +13,7 @@ describe Group, type: :model do
   context 'organisation_id is not empty' do
     let(:new_group) { Group.new(organisation_id: SecureRandom.uuid) }
 
-    it 'create a new member success' do
+    it 'create a new group success' do
       expect(new_group.valid?).to be_truthy
       expect(new_group.errors).to be_empty
     end
