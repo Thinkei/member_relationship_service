@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Group, type: :model do
+  it { is_expected.to have_many_to_one :organisation }
+
   context 'organisation_id is empty' do
     let(:new_group) { Group.new(organisation_id: '') }
 
