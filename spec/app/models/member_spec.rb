@@ -2,6 +2,8 @@ require 'spec_helper'
 
 describe Member, type: :model do
   it { is_expected.to have_many_to_one :organisation }
+  it { is_expected.to have_one_to_many :group_members }
+  it { is_expected.to have_many_to_many :groups }
 
   context 'organisation_id is empty' do
     let(:new_member) { Member.new(organisation_id: '') }
