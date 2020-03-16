@@ -1,7 +1,6 @@
 class Group < Sequel::Model(DB[:groups])
   many_to_one :organisation
-  one_to_many :group_members
-  many_to_many :members, join_table: :group_members
+  many_to_many :members
 
   def validate
     super
