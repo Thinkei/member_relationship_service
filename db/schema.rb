@@ -37,5 +37,16 @@ Sequel.migration do
       
       primary_key [:filename]
     end
+    
+    create_table(:teams) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :name, "text"
+      column :organisation_id, "uuid", :null=>false
+      column :leader_id, "uuid"
+      column :created_at, "timestamp without time zone", :default=>Sequel::CURRENT_TIMESTAMP
+      column :updated_at, "timestamp without time zone", :default=>Sequel::CURRENT_TIMESTAMP
+      
+      primary_key [:id]
+    end
   end
 end
