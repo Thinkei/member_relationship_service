@@ -39,6 +39,14 @@ Sequel.migration do
       primary_key [:id]
     end
     
+    create_table(:members_teams) do
+      column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
+      column :member_id, "uuid", :null=>false
+      column :team_id, "uuid", :null=>false
+      
+      primary_key [:id]
+    end
+    
     create_table(:organisations) do
       column :id, "uuid", :default=>Sequel::LiteralString.new("uuid_generate_v4()"), :null=>false
       column :name, "text", :null=>false
